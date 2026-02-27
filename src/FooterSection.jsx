@@ -1,6 +1,6 @@
-import image from "./image.svg";
-import vector3 from "./vector-3.svg";
-import vector from "./vector.svg";
+import image from "./assets/image.svg";
+import vector3 from "./assets/vector-3.svg";
+import vector from "./assets/vector.svg";
 
 export const FooterSection = () => {
   const socialLinks = [

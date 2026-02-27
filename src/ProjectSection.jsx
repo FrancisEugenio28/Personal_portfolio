@@ -1,10 +1,10 @@
-import a0972f302748918F5A5Ec388631Da31 from "./78a0972f-3027-4891-8f5a-5ec388631da3-1.png";
-import cbb8cbA5364471971968Bde83A65B61 from "./96cbb8cb-a536-4471-9719-68bde83a65b6-1.png";
-import e9ac4420C5C44B23B5A001803387Ecf11 from "./e9ac4420-c5c4-4b23-b5a0-01803387ecf1-1.png";
-import screenshot202602251317261 from "./screenshot-2026-02-25-131726-1.png";
-import untitledDesign1 from "./untitled-design-1.png";
-import untitledDesign2 from "./untitled-design-2.png";
-import vector22 from "./vector-2-2.svg";
+import a0972f302748918F5A5Ec388631Da31 from "./assets/78a0972f-3027-4891-8f5a-5ec388631da3-1.png";
+import cbb8cbA5364471971968Bde83A65B61 from "./assets/96cbb8cb-a536-4471-9719-68bde83a65b6-1.png";
+import e9ac4420C5C44B23B5A001803387Ecf11 from "./assets/e9ac4420-c5c4-4b23-b5a0-01803387ecf1-1.png";
+import screenshot202602251317261 from "./assets/screenshot-2026-02-25-131726-1.png";
+import untitledDesign1 from "./assets/untitled-design-1.png";
+import untitledDesign2 from "./assets/untitled-design-2.png";
+import vector22 from "./assets/vector-2-2.svg";
 
 export const ProjectsSection = () => {
   const projects = [

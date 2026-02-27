@@ -1,5 +1,5 @@
-import ellipse1 from "./ellipse-1.png";
-import vector2 from "./vector-2.svg";
+import ellipse1 from "./assets/ellipse-1.png";
+import vector2 from "./assets/vector-2.svg";
 
 export const AboutMeSection = () => {
   return (

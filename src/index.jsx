@@ -1,19 +1,19 @@
 import { AboutMeSection } from "./AboutMeSection";
 import { FooterSection } from "./FooterSection";
 import { HeroSection } from "./HeroSection";
-import { ProjectsSection } from "./ProjectsSection";
-import { SkillsSection } from "./src/assets/SkillsSection";
-import image1 from "./image-1.png";
-import image2 from "./image-2.png";
-import image3 from "./image-3.png";
-import image4 from "./image-4.png";
-import image5 from "./image-5.png";
-import image8 from "./image-8.png";
-import image9 from "./image-9.png";
-import image16 from "./image-16.png";
-import image17 from "./image-17.png";
-import image18 from "./image-18.png";
-import vector7 from "./vector-7.svg";
+import { ProjectsSection } from "./ProjectSection";
+import { SkillsSection } from "./SkillsSection";
+import image1 from "./assets/image-1.png";
+import image2 from "./assets/image-2.png";
+import image3 from "./assets/image-3.png";
+import image4 from "./assets/image-4.png";
+import image5 from "./assets/image-5.png";
+import image8 from "./assets/image-8.png";
+import image9 from "./assets/image-9.png";
+import image16 from "./assets/image-16.png";
+import image17 from "./assets/image-17.png";
+import image18 from "./assets/image-18.png";
+import vector7 from "./assets/vector-7.svg";
 
 export const Homepage = () => {
   const techLogos = [

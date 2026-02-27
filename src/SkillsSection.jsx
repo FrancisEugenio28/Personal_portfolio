@@ -1,4 +1,4 @@
-import vector1 from "./vector-1.svg";
+import vector1 from "./assets/vector-1.svg";
 
 export const SkillsSection = () => {
   const technicalSkills = [

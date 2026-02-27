@@ -1,6 +1,6 @@
-import vector4 from "./vector-4.svg";
-import vector5 from "./vector-5.svg";
-import vector6 from "./vector-6.svg";
+import vector4 from "./assets/vector-4.svg";
+import vector5 from "./assets/vector-5.svg";
+import vector6 from "./assets/vector-6.svg";
 
 export const HeroSection = () => {
   const socialLinks = [
