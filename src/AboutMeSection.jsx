@@ -3,15 +3,15 @@ import Vector1 from "./assets/aboutme/vector-2.svg";
 
 export const AboutMeSection = () => {
   return (
-    <section className="flex w-full min-h-[837px] relative items-center gap-[100px] px-[150px] py-20 bg-white">
-      <img
-        className="relative w-[500px] h-[500px] aspect-[1]"
+    <section className="flex w-full min-h-[750px] relative items-center gap-[100px] px-[150px] py-[60px] bg-white">
+      <img  
+        className="relative w-[450px] h-[450px] aspect-[1] rounded-full object-cover border-2 border-x1st-primary"
         alt="Profile picture"
         src={Formal_Pic}
       />
 
       <div className="w-[1000px] gap-2.5 flex flex-col items-start relative">
-        <h2 className="relative self-stretch mt-[-1.00px] [font-family:'Geologica-Bold',Helvetica] font-bold text-x1st-primary text-[80px] tracking-[0] leading-[normal]">
+        <h2 className="relative self-stretch mt-[-1.00px] [font-family:'Geologica-Bold',Helvetica] font-bold text-x1st-primary text-[60px] tracking-[0] leading-[normal]">
           About Me
         </h2>
 
@@ -22,7 +22,7 @@ export const AboutMeSection = () => {
           role="presentation"
         />
 
-        <p className="relative self-stretch [font-family:'Geologica-Bold',Helvetica] font-bold text-x1st-primary text-[32px] text-justify tracking-[0] leading-[normal]">
+        <p className="relative self-stretch [font-family:'Geologica-Bold',Helvetica] font-bold text-x1st-primary text-[25px] text-justify tracking-[0] leading-[normal]">
           Currently a Computer Engineering student at PUP, I&apos;m a system
           development enthusiast who loves the &#34;magic&#34; of creating
           something out of nothing—be it a webpage, a mobile app, or a complex

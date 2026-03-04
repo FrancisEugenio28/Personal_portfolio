@@ -15,15 +15,15 @@ export const SkillsSection = () => {
   ];
 
   return (
-    <section className="flex w-full min-h-[809px] relative flex-col items-start gap-[250px] pt-20 pb-[60px] px-[150px] bg-breaker">
-      <div className="relative w-[1620px] h-[695px] mb-[-26.00px]">
+    <section className="flex w-full min-h-[450px] relative flex-col items-start gap-[250px] pt-[45px] pb-[30px] px-[150px] bg-breaker">
+      <div className="relative w-full max-w-[1620px] h-[695px] mb-[-26.00px]">
         <div className="flex flex-col w-full h-[695px] items-start gap-2.5 relative">
-          <h2 className="self-stretch relative mt-[-1.00px] [font-family:'Geologica-Bold',Helvetica] font-bold text-x1st-primary text-[80px] tracking-[0] leading-[normal]">
+          <h2 className="self-stretch relative mt-[-1.00px] [font-family:'Geologica-Bold',Helvetica] font-bold text-x1st-primary text-[60px] tracking-[0] leading-[normal]">
             My Skills
           </h2>
 
           <img
-            className="relative w-[1620.01px] h-2"
+            className="relative w-full object-cover h-2"
             alt=""
             src={vector1}
             role="presentation"
@@ -34,7 +34,7 @@ export const SkillsSection = () => {
               Technical Skills:
             </h3>
 
-            <ul className="text-[28px] list-none">
+            <ul className="text-[21px] list-disc pl-8">
               {technicalSkills.map((skill, index) => (
                 <li key={index} className="leading-[50px]">
                   {skill}
@@ -50,7 +50,7 @@ export const SkillsSection = () => {
               Soft Skills:
             </h3>
 
-            <ul className="text-[28px] list-none">
+            <ul className="text-[21px] list-disc pl-8">
               {softSkills.map((skill, index) => (
                 <li key={index} className="leading-[50px]">
                   {skill}

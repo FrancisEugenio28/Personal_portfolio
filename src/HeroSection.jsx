@@ -38,12 +38,12 @@ export const HeroSection = () => {
 
   return (
     <section
-      className="flex self-end w-full min-h-[890px] relative items-center gap-[280px] px-[150px] py-[120px] bg-bg"
+      className="flex self-end w-full min-h-[650px] relative items-center gap-[100px] px-[150px] py-[60px] bg-bg"
       aria-label="Hero Section"
     >
-      <div className="flex flex-col w-[800px] items-end justify-center gap-2.5 relative mt-[-87.00px] mb-[-87.00px]">
-        <div className="flex-col h-[824px] items-start gap-5 pt-20 pb-0 px-0 self-stretch w-full flex relative">
-          <h1 className="relative self-stretch mt-[-1.00px] [font-family:'Geologica-Bold',Helvetica] font-bold text-x1st-primary text-8xl tracking-[0] leading-[normal]">
+      <div className="flex flex-col w-[750px] items-end justify-center gap-0.5 relative mt-[-87.00px] mb-[-150.00px]">
+        <div className="flex-col h-[650px] items-start gap-3 pt-10 pb-0 px-0 self-stretch w-full flex relative">
+          <h1 className="relative self-stretch mt-[-1.00px] [font-family:'Geologica-Bold',Helvetica] font-bold text-x1st-primary text-6xl tracking-[0] leading-[normal]">
             Hello.
             <br />
             I&apos;m Francis Niño.
@@ -54,19 +54,19 @@ export const HeroSection = () => {
             endlessly, so you can create without limits.
           </p>
 
-          <div className="flex flex-col w-[427px] items-start justify-end gap-[190px] pl-0 pr-2.5 pt-5 pb-2.5 relative flex-[0_0_auto]">
+          <div className="flex flex-col w-[427px] items-start justify-end gap-[100px] pl-0 pr-2.5 pt-5 pb-2.5 relative flex-[0_0_auto]">
             <a
               href="#resume"
               className="inline-flex items-center justify-center gap-2.5 p-5 relative flex-[0_0_auto] bg-x1st-primary rounded-[20px] no-underline transition-opacity hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-x1st-primary focus:ring-offset-2"
               aria-label="Check my resume"
             >
-              <span className="relative w-[279px] mt-[-1.00px] [font-family:'Geologica-Bold',Helvetica] font-bold text-x2nd-primary text-[32px] tracking-[0] leading-[normal]">
+              <span className="relative w-[200px] mt-[-1.00px] [font-family:'Geologica-Bold',Helvetica] font-bold text-x2nd-primary text-[23px] tracking-[0] leading-[normal]">
                 check my resume
               </span>
             </a>
 
-            <div className="justify-center gap-3.5 self-stretch w-full flex-[0_0_auto] flex flex-col items-start relative">
-              <h2 className="relative self-stretch mt-[-1.00px] [font-family:'Geologica-SemiBold',Helvetica] font-semibold text-x1st-primary text-[32px] tracking-[0] leading-[normal]">
+            <div className="justify-center gap-0.5 self-stretch w-full flex-[0_0_auto] flex flex-col items-start relative">
+              <h2 className="relative self-stretch mt-[-1.00px] [font-family:'Geologica-SemiBold',Helvetica] font-semibold text-x1st-primary text-[23px] tracking-[0] leading-[normal]">
                 Connect with me:
               </h2>
 
