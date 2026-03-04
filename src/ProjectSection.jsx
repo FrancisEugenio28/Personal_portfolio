@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react";
 import Project3 from "./assets/projects/dostgemms_pic.svg";
 import Project1 from "./assets/projects/covid_pic.svg";
 import Project2 from "./assets/projects/registration_pic.svg";
@@ -7,6 +8,32 @@ import Project5 from "./assets/projects/kumpas_pic.svg";
 import vector2 from "./assets/projects/vector2.svg";
 
 export const ProjectsSection = () => {
+  // Create a reference to target the scrolling container
+  const scrollRef = useRef(null);
+
+  // Intercept the mouse wheel event to scroll horizontally
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (el) {
+      const handleWheel = (e) => {
+        if (e.deltaY !== 0) {
+          e.preventDefault(); 
+          
+          // Use the built-in smooth scroll animation
+          el.scrollBy({
+            left: e.deltaY,
+            behavior: "smooth",
+          });
+        }
+      };
+      
+      // We must use a native event listener with passive: false to allow preventDefault()
+      el.addEventListener("wheel", handleWheel, { passive: false });
+      
+      // Cleanup the event listener when the component unmounts
+      return () => el.removeEventListener("wheel", handleWheel);
+    }
+  }, []);
 
   const projects = [
     {
@@ -55,7 +82,7 @@ export const ProjectsSection = () => {
 
   return (
     <section className="flex w-full relative flex-col items-start gap-8 px-10 md:px-[150px] py-[70px] bg-white">
-      <h2 className="w-full relative mt-[-40.00px] [font-family:'Geologica-Bold',Helvetica] font-bold text-x1st-primary text-[60px] md:text-[60px] tracking-[0] leading-[normal]">
+      <h2 className="w-full relative mt-[-5.00px] [font-family:'Geologica-Bold',Helvetica] font-bold text-x1st-primary text-[60px] md:text-[60px] tracking-[0] leading-[normal]">
         My Projects
       </h2>
 
@@ -65,7 +92,10 @@ export const ProjectsSection = () => {
         src={vector2}
       />
 
-      <div className="flex items-center gap-10 px-0 py-[-1000px] relative self-stretch w-full overflow-hidden overflow-x-auto pb-8">
+      <div 
+        ref={scrollRef}
+        className="flex items-center gap-10 px-0 relative self-stretch w-full overflow-x-auto pb-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+      >
         <div className="inline-flex items-stretch gap-10 relative">
           {projects.map((project, index) => (
             <article
@@ -78,7 +108,8 @@ export const ProjectsSection = () => {
                   <div className="w-6 h-6 bg-[#d9d9d9] rounded-full border-[4px] border-black opacity-60" />
                   <div className="w-6 h-6 bg-[#d9d9d9] rounded-full border-[4px] border-black opacity-60" />
                 </div>
-                <h3 className="[font-family:'Geologica-Bold',Helvetica] font-bold text-black text-xl text-center leading-snug line-clamp-3">
+                {/* Fixed the missing space after text-center here */}
+                <h3 className="flex-1 text-center [font-family:'Geologica-Bold',Helvetica] font-bold text-black text-xl leading-snug line-clamp-3">
                   {project.title}
                 </h3>
               </header>
