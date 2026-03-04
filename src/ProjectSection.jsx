@@ -1,16 +1,16 @@
-import a0972f302748918F5A5Ec388631Da31 from "./assets/78a0972f-3027-4891-8f5a-5ec388631da3-1.png";
-import cbb8cbA5364471971968Bde83A65B61 from "./assets/96cbb8cb-a536-4471-9719-68bde83a65b6-1.png";
-import e9ac4420C5C44B23B5A001803387Ecf11 from "./assets/e9ac4420-c5c4-4b23-b5a0-01803387ecf1-1.png";
-import screenshot202602251317261 from "./assets/screenshot-2026-02-25-131726-1.png";
-import untitledDesign1 from "./assets/untitled-design-1.png";
-import untitledDesign2 from "./assets/untitled-design-2.png";
-import vector22 from "./assets/vector-2-2.svg";
+import Project3 from "./assets/projects/dostgemms_pic.svg";
+import Project1 from "./assets/projects/covid_pic.svg";
+import Project2 from "./assets/projects/registration_pic.svg";
+import Project6 from "./assets/projects/soundtherapy3D_pic.svg";
+import Project4 from "./assets/projects/sleeptherapy_pic.svg";
+import Project5 from "./assets/projects/kumpas_pic.svg";
+import vector2 from "./assets/projects/vector2.svg";
 
 export const ProjectsSection = () => {
   const projects = [
     {
       title: "COVID Contact Tracing Software",
-      image: cbb8cbA5364471971968Bde83A65B61,
+      image: Project1,
       description:
         "A Python-based desktop application for COVID-19 contact tracing that allows users to register their personal health and contact information, which is stored locally in a CSV file. It also provides a search feature where users can verify their registration using either a reference number or by filling in their personal details.",
       link: "https://github.com/FrancisEugenio28/COVID_Contact_Tracing_Program",
@@ -25,7 +25,7 @@ export const ProjectsSection = () => {
     },
     {
       title: "Simple Registration form",
-      image: e9ac4420C5C44B23B5A001803387Ecf11,
+      image: Project2,
       description:
         "A PHP and HTML web application that allows users to register with their personal, contact, and address information stored in a MySQL database. It includes a secure login system with password hashing and session management for user authentication.",
       link: "https://github.com/Flere2134/registration-form",
@@ -40,7 +40,7 @@ export const ProjectsSection = () => {
     },
     {
       title: "DOST General Maintenance Management System",
-      image: a0972f302748918F5A5Ec388631Da31,
+      image: Project3,
       description:
         "A Laravel-based facility management system that enables organizations to track assets, schedule maintenance tasks, and coordinate staff through a centralized dashboard. It features role-based access control to manage personnel assignments and streamline overall building operations.",
       link: "https://devhub.dost.gov.ph/smdcanega/dost_gemms/src/branch/Francis_Eugenio",
@@ -58,7 +58,7 @@ export const ProjectsSection = () => {
     },
     {
       title: "Sleep Sound Therapy Mobile Application",
-      image: untitledDesign1,
+      image: Project4,
       description:
         "A Flutter mobile app that improves sleep quality through sound therapy, offering various audio categories like classical, nature, and binaural beats. It also allows users to track sleep data and connect to smart devices via Bluetooth for an integrated sleep therapy experience.",
       link: "https://github.com/FrancisEugenio28/Sleep-Sound-Therapy-Mobile-App",
@@ -76,7 +76,7 @@ export const ProjectsSection = () => {
     },
     {
       title: "KUMPAS: Camera-based Proximity Controlled Music Synthesizer",
-      image: untitledDesign2,
+      image: Project5,
       description:
         "A Python app that turns your webcam into a virtual piano by tracking your index finger using MediaPipe, mapping its horizontal position to musical notes and vertical position to volume in real time.",
       link: "https://github.com/FrancisEugenio28/KUMPAS",
@@ -95,7 +95,7 @@ export const ProjectsSection = () => {
     },
     {
       title: "Sleep Sound Therapy 3D Model Casing",
-      image: screenshot202602251317261,
+      image: Project6,
       description:
         'A 3D model for our thesis project "Embedded Sound Therapy: Engineering Smart Devices for Sleep Quality Improvement".',
       link: "https://www.printables.com/model/1616011-sleep-sound-therapy-3d-model",
@@ -122,7 +122,7 @@ export const ProjectsSection = () => {
       <img
         className="relative w-[1620px] h-[3px]"
         alt="Divider"
-        src={vector22}
+        src={vector2}
       />
 
       <div className="flex items-center gap-2.5 px-0 py-2 relative self-stretch w-full flex-[0_0_auto] overflow-hidden overflow-x-scroll">

@@ -1,34 +1,35 @@
-import vector4 from "./assets/vector-4.svg";
-import vector5 from "./assets/vector-5.svg";
-import vector6 from "./assets/vector-6.svg";
+import Facebook from "./assets/hero/facebook_hero.svg";
+import Instagram from "./assets/hero/instagram_hero.svg";
+import Github from "./assets/hero/github_hero.svg";
+import LinkedIn from "./assets/hero/linkedin_hero.svg";
 
 export const HeroSection = () => {
   const socialLinks = [
     {
       href: "https://web.facebook.com/balong.eugenio/",
-      icon: vector4,
+      icon: Facebook,
       alt: "Facebook",
       width: "w-[50px]",
       position: "left-0",
     },
     {
       href: "https://www.instagram.com/oninoninoninoninonin/",
-      icon: vector5,
+      icon: Instagram,
       alt: "Instagram",
       width: "w-[45px]",
       position: "left-40",
     },
     {
       href: "https://github.com/FrancisEugenio28",
-      icon: null,
+      icon: Github,
       alt: "GitHub",
-      width: null,
+      width: "w-[60px]",
       position: "left-80",
-      isBackground: true,
+
     },
     {
       href: "https://www.linkedin.com/in/eugenio-francis-ni%C3%B1o-a-164b76359/",
-      icon: vector6,
+      icon: LinkedIn,
       alt: "LinkedIn",
       width: "w-[49.7px]",
       position: "left-[480px]",

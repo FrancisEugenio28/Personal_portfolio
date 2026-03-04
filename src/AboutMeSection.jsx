@@ -1,5 +1,5 @@
-import ellipse1 from "./assets/ellipse-1.png";
-import vector2 from "./assets/vector-2.svg";
+import Formal_Pic from "./assets/aboutme/formal-pic.jpg";
+import Vector1 from "./assets/aboutme/vector-2.svg";
 
 export const AboutMeSection = () => {
   return (
@@ -7,7 +7,7 @@ export const AboutMeSection = () => {
       <img
         className="relative w-[500px] h-[500px] aspect-[1]"
         alt="Profile picture"
-        src={ellipse1}
+        src={Formal_Pic}
       />
 
       <div className="w-[1000px] gap-2.5 flex flex-col items-start relative">
@@ -18,7 +18,7 @@ export const AboutMeSection = () => {
         <img
           className="relative w-[1000.02px] h-2 ml-[-0.01px] mr-[-0.01px]"
           alt=""
-          src={vector2}
+          src={Vector1}
           role="presentation"
         />
 

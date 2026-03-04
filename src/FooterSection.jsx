@@ -1,34 +1,35 @@
-import image from "./assets/image.svg";
-import vector3 from "./assets/vector-3.svg";
-import vector from "./assets/vector.svg";
+import Instagram_foot from "./assets/footer/instagram-icon.svg";
+import Linkedin_foot from "./assets/footer/linkedin-icon.svg";
+import Facebook_foot from "./assets/footer/facebook-icon.svg";
+import Github_foot from "./assets/footer/github-icon.svg";
+
 
 export const FooterSection = () => {
   const socialLinks = [
     {
       href: "https://web.facebook.com/balong.eugenio/",
-      icon: vector,
+      icon: Facebook_foot,
       alt: "Facebook",
       width: "w-[50px]",
       height: "h-[49.88px]",
     },
     {
       href: "https://www.instagram.com/oninoninoninoninonin/",
-      icon: image,
+      icon: Instagram_foot,
       alt: "Instagram",
       width: "w-[45px]",
       height: "h-[49.5px]",
     },
     {
       href: "https://github.com/FrancisEugenio28",
-      icon: null,
+      icon: Github_foot,
       alt: "GitHub",
       width: "w-[60px]",
       height: "h-[60px]",
-      isBackground: true,
     },
     {
       href: "https://www.linkedin.com/in/eugenio-francis-ni%C3%B1o-a-164b76359/",
-      icon: vector3,
+      icon: Linkedin_foot,
       alt: "LinkedIn",
       width: "w-[49.7px]",
       height: "h-[50px]",

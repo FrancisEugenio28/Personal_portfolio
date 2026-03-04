@@ -3,79 +3,79 @@ import { FooterSection } from "./FooterSection";
 import { HeroSection } from "./HeroSection";
 import { ProjectsSection } from "./ProjectSection";
 import { SkillsSection } from "./SkillsSection";
-import image1 from "./assets/image-1.png";
-import image2 from "./assets/image-2.png";
-import image3 from "./assets/image-3.png";
-import image4 from "./assets/image-4.png";
-import image5 from "./assets/image-5.png";
-import image8 from "./assets/image-8.png";
-import image9 from "./assets/image-9.png";
-import image16 from "./assets/image-16.png";
-import image17 from "./assets/image-17.png";
-import image18 from "./assets/image-18.png";
-import vector7 from "./assets/vector-7.svg";
+import Autocad_icon from "./assets/index/autocad-icon.svg";
+import HTML_icon from "./assets/index/html-icon.svg";
+import CSS_icon from "./assets/index/css-icon.svg";
+import JavaScript_icon from "./assets/index/javascript-icon.svg";
+import Flutter_icon from "./assets/index/flutter-icon.svg";
+import Laravel_icon from "./assets/index/laravel-icon.svg";
+import PHP_icon from "./assets/index/php-icon.svg";
+import Python_icon from "./assets/index/python-icon.svg";
+import C_icon from "./assets/index/c-icon.svg";
+import CPP_icon from "./assets/index/cpp-icon.svg";
+import Menu_icon from "./assets/index/menu-icon.svg";
 
 export const Homepage = () => {
   const techLogos = [
     {
-      src: image1,
-      alt: "Technology logo 1",
+      src: Autocad_icon,
+      alt: "Autocad logo",
       aspectRatio: "aspect-[1]",
       width: "w-[100px]",
     },
     {
-      src: image2,
-      alt: "Technology logo 2",
+      src: HTML_icon,
+      alt: "HTML logo",
       aspectRatio: "aspect-[1]",
       width: "w-[100px]",
     },
     {
-      src: image3,
-      alt: "Technology logo 3",
+      src: CSS_icon,
+      alt: "CSS logo",
       aspectRatio: "aspect-[1]",
       width: "w-[100px]",
     },
     {
-      src: image9,
-      alt: "Technology logo 4",
-      aspectRatio: "aspect-[0.88]",
-      width: "w-[88px]",
-    },
-    {
-      src: image4,
-      alt: "Technology logo 5",
+      src: JavaScript_icon,
+      alt: "JavaScript logo",
       aspectRatio: "aspect-[1]",
       width: "w-[100px]",
     },
     {
-      src: image5,
-      alt: "Technology logo 6",
+      src: Flutter_icon,
+      alt: "Flutter logo",
       aspectRatio: "aspect-[1]",
       width: "w-[100px]",
     },
     {
-      src: image16,
-      alt: "Technology logo 7",
+      src: Laravel_icon,
+      alt: "Laravel logo",
       aspectRatio: "aspect-[1]",
       width: "w-[100px]",
     },
     {
-      src: image8,
-      alt: "Technology logo 8",
+      src: PHP_icon,
+      alt: "PHP logo",
       aspectRatio: "aspect-[1]",
       width: "w-[100px]",
     },
     {
-      src: image18,
-      alt: "Technology logo 9",
+      src: Python_icon,
+      alt: "Python logo",
       aspectRatio: "aspect-[1]",
       width: "w-[100px]",
     },
     {
-      src: image17,
-      alt: "Technology logo 10",
-      aspectRatio: "aspect-[0.89]",
-      width: "w-[89px]",
+      src: C_icon,
+      alt: "C logo",
+      aspectRatio: "aspect-[1]",
+      width: "w-[100px]",
+    },
+    {
+      src: CPP_icon,
+      alt: "C++ logo",
+      aspectRatio: "aspect-[1]",
+      width: "w-[100px]",
     },
   ];
 
@@ -94,7 +94,7 @@ export const Homepage = () => {
             <img
               className="absolute w-[87.50%] h-[75.00%] top-[25.00%] left-[12.50%]"
               alt=""
-              src={vector7}
+              src={Menu_icon}
             />
           </button>
         </nav>
