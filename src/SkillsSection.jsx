@@ -15,9 +15,9 @@ export const SkillsSection = () => {
   ];
 
   return (
-    <section className="flex w-[1920px] h-[809px] relative flex-col items-start gap-[250px] pt-20 pb-[60px] px-[150px] bg-breaker">
+    <section className="flex w-full min-h-[809px] relative flex-col items-start gap-[250px] pt-20 pb-[60px] px-[150px] bg-breaker">
       <div className="relative w-[1620px] h-[695px] mb-[-26.00px]">
-        <div className="flex flex-col w-[1620px] h-[695px] items-start gap-2.5 relative">
+        <div className="flex flex-col w-full h-[695px] items-start gap-2.5 relative">
           <h2 className="self-stretch relative mt-[-1.00px] [font-family:'Geologica-Bold',Helvetica] font-bold text-x1st-primary text-[80px] tracking-[0] leading-[normal]">
             My Skills
           </h2>

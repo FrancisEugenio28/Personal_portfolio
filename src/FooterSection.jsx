@@ -37,7 +37,7 @@ export const FooterSection = () => {
   ];
 
   return (
-    <footer className="flex w-[1920px] h-[210px] relative items-start gap-[515px] p-20 bg-x1st-primary">
+    <footer className="flex w-full min-h-[210px] relative items-start gap-[515px] p-20 bg-x1st-primary">
       <div className="flex w-[233px] items-center gap-2.5 p-2.5 relative">
         <p className="relative w-fit mt-[-1.00px] [font-family:'Geologica-Regular',Helvetica] font-normal text-x2nd-primary text-2xl tracking-[0] leading-[normal]">
           © Eugenio, 2026

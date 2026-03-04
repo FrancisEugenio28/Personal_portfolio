@@ -38,7 +38,7 @@ export const HeroSection = () => {
 
   return (
     <section
-      className="flex self-end w-[1920px] h-[890px] relative items-center gap-[280px] px-[150px] py-[120px] bg-[linear-gradient(0deg,rgba(255,255,255,1)_0%,rgba(255,255,255,1)_100%)]"
+      className="flex self-end w-full min-h-[890px] relative items-center gap-[280px] px-[150px] py-[120px] bg-bg"
       aria-label="Hero Section"
     >
       <div className="flex flex-col w-[800px] items-end justify-center gap-2.5 relative mt-[-87.00px] mb-[-87.00px]">

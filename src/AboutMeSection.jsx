@@ -3,7 +3,7 @@ import Vector1 from "./assets/aboutme/vector-2.svg";
 
 export const AboutMeSection = () => {
   return (
-    <section className="flex w-[1920px] h-[837px] relative items-center gap-[100px] px-[150px] py-20 bg-[#f7f5f2]">
+    <section className="flex w-full min-h-[837px] relative items-center gap-[100px] px-[150px] py-20 bg-white">
       <img
         className="relative w-[500px] h-[500px] aspect-[1]"
         alt="Profile picture"

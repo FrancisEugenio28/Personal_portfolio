@@ -80,9 +80,9 @@ export const Homepage = () => {
   ];
 
   return (
-    <div className="bg-[#ffffff] w-full min-w-[1920px] min-h-[4015px] flex flex-col">
-      <header className="flex w-[1920px] h-[99px] relative flex-col items-center justify-center gap-2.5 p-2.5 bg-x2nd-primary">
-        <nav className="w-[1920px] h-[82px] items-center gap-[1550px] px-20 py-2.5 mt-[-1.50px] mb-[-1.50px] ml-[-10.00px] mr-[-10.00px] flex relative">
+    <div className="bg-bg w-full flex flex-col">
+      <header className="flex w-full min-h-[99px] relative flex-col items-center justify-center gap-2.5 p-2.5 bg-x2nd-primary">
+        <nav className="w-full h-[82px] items-center justify-between px-20 py-2.5 mt-[-1.50px] mb-[-1.50px] flex relative">
           <h1 className="text-x1st-primary relative w-fit [font-family:'Geologica-Bold',Helvetica] font-bold text-[40px] tracking-[0] leading-[normal]">
             francis.
           </h1>
@@ -105,7 +105,7 @@ export const Homepage = () => {
         <AboutMeSection />
         <SkillsSection />
         <section
-          className="flex w-[1920px] h-[180px] relative items-center justify-center gap-[90px] px-0 py-10 bg-breaker"
+          className="flex w-full min-h-[180px] relative items-center justify-center gap-[90px] px-0 py-10 bg-breaker"
           aria-label="Technologies"
         >
           {techLogos.map((logo, index) => (

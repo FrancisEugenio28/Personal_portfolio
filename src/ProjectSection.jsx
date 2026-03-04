@@ -114,7 +114,7 @@ export const ProjectsSection = () => {
   ];
 
   return (
-    <section className="flex w-[1920px] h-[990px] relative flex-col items-start gap-[30px] px-[157px] py-20 bg-[#f7f5f2] overflow-x-scroll">
+    <section className="flex w-full min-h-[990px] relative flex-col items-start gap-[30px] px-[157px] py-20 bg-white overflow-x-scroll">
       <h2 className="w-[1690px] relative mt-[-1.00px] [font-family:'Geologica-Bold',Helvetica] font-bold text-x1st-primary text-[80px] tracking-[0] leading-[normal]">
         My Projects
       </h2>
