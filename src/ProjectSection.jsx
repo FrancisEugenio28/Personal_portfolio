@@ -8,18 +8,19 @@ import Project5 from "./assets/projects/kumpas_pic.svg";
 import vector2 from "./assets/projects/vector2.svg";
 
 export const ProjectsSection = () => {
-  // Create a reference to target the scrolling container
+  // 1. Refs for the container and drag state
   const scrollRef = useRef(null);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
 
-  // Intercept the mouse wheel event to scroll horizontally
+  // 2. Mouse Wheel Scroll Logic (Kept from before)
   useEffect(() => {
     const el = scrollRef.current;
     if (el) {
       const handleWheel = (e) => {
         if (e.deltaY !== 0) {
           e.preventDefault(); 
-          
-          // Use the built-in smooth scroll animation
           el.scrollBy({
             left: e.deltaY,
             behavior: "smooth",
@@ -27,13 +28,39 @@ export const ProjectsSection = () => {
         }
       };
       
-      // We must use a native event listener with passive: false to allow preventDefault()
       el.addEventListener("wheel", handleWheel, { passive: false });
-      
-      // Cleanup the event listener when the component unmounts
       return () => el.removeEventListener("wheel", handleWheel);
     }
   }, []);
+
+  // 3. Click-and-Drag Mouse Handlers
+  const handleMouseDown = (e) => {
+    isDragging.current = true;
+    // Record where the mouse was clicked relative to the container
+    startX.current = e.pageX - scrollRef.current.offsetLeft;
+    // Record the current scroll position
+    scrollLeft.current = scrollRef.current.scrollLeft;
+  };
+
+  const handleMouseLeave = () => {
+    isDragging.current = false; // Stop dragging if the mouse leaves the box
+  };
+
+  const handleMouseUp = () => {
+    isDragging.current = false; // Stop dragging when the mouse button is released
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging.current) return; // Only run if the mouse is held down
+    e.preventDefault();
+    
+    // Calculate how far the mouse has moved
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX.current) * 1.5; // Multiply by 1.5 to make it scroll a bit faster
+    
+    // Move the scrollbar
+    scrollRef.current.scrollLeft = scrollLeft.current - walk;
+  };
 
   const projects = [
     {
@@ -92,9 +119,14 @@ export const ProjectsSection = () => {
         src={vector2}
       />
 
+      {/* Added the mouse events and cursor styling classes here */}
       <div 
         ref={scrollRef}
-        className="flex items-center gap-10 px-0 relative self-stretch w-full overflow-x-auto pb-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+        onMouseDown={handleMouseDown}
+        onMouseLeave={handleMouseLeave}
+        onMouseUp={handleMouseUp}
+        onMouseMove={handleMouseMove}
+        className="flex items-center gap-10 px-0 relative self-stretch w-full overflow-x-auto pb-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] cursor-grab active:cursor-grabbing select-none"
       >
         <div className="inline-flex items-stretch gap-10 relative">
           {projects.map((project, index) => (
@@ -108,7 +140,6 @@ export const ProjectsSection = () => {
                   <div className="w-6 h-6 bg-[#d9d9d9] rounded-full border-[4px] border-black opacity-60" />
                   <div className="w-6 h-6 bg-[#d9d9d9] rounded-full border-[4px] border-black opacity-60" />
                 </div>
-                {/* Fixed the missing space after text-center here */}
                 <h3 className="flex-1 text-center [font-family:'Geologica-Bold',Helvetica] font-bold text-black text-xl leading-snug line-clamp-3">
                   {project.title}
                 </h3>
@@ -116,7 +147,8 @@ export const ProjectsSection = () => {
 
               <div className="w-full h-[125px] border-b-[5px] border-black shrink-0 bg-white">
                 <img
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover pointer-events-none"
+                  draggable="false"
                   alt={project.title}
                   src={project.image}
                 />
@@ -128,7 +160,7 @@ export const ProjectsSection = () => {
                 </p>
 
                 <a
-                  className="inline-flex items-center justify-center px-6 py-3 bg-x1st-primary rounded-[10px] self-start transition-opacity hover:opacity-90"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-x1st-primary rounded-[10px] self-start transition-opacity hover:opacity-90 pointer-events-auto"
                   href={project.link}
                   rel="noopener noreferrer"
                   target="_blank"
