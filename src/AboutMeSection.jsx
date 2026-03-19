@@ -1,16 +1,27 @@
+import { motion } from "framer-motion";
 import Formal_Pic from "./assets/aboutme/formal-pic.jpg";
 import Vector1 from "./assets/aboutme/vector-2.svg";
 
 export const AboutMeSection = () => {
   return (
     <section className="flex w-full min-h-[750px] relative items-center gap-[100px] px-[150px] py-[60px] bg-white">
-      <img  
+      <motion.img
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
         className="relative w-[450px] h-[450px] aspect-[1] rounded-full object-cover border-2 border-x1st-primary"
         alt="Profile picture"
         src={Formal_Pic}
       />
 
-      <div className="w-[1000px] gap-2.5 flex flex-col items-start relative">
+      <motion.div 
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="w-[1000px] gap-2.5 flex flex-col items-start relative"
+      >
         <h2 className="relative self-stretch mt-[-1.00px] [font-family:'Geologica-Bold',Helvetica] font-bold text-x1st-primary text-[60px] tracking-[0] leading-[normal]">
           About Me
         </h2>
@@ -34,7 +45,7 @@ export const AboutMeSection = () => {
           topics, system architecture, or the best brew in town. Let&apos;s
           connect and explore the future of tech together!
         </p>
-      </div>
+      </motion.div>
     </section>
   );
 };

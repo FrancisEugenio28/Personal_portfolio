@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Facebook from "./assets/hero/facebook_hero.svg";
 import Instagram from "./assets/hero/instagram_hero.svg";
 import Github from "./assets/hero/github_hero.svg";
@@ -43,19 +44,31 @@ export const HeroSection = () => {
     >
       <div className="flex flex-col w-[750px] items-end justify-center gap-0.5 relative mt-[-87.00px] mb-[-150.00px]">
         <div className="flex-col h-[650px] items-start gap-3 pt-10 pb-0 px-0 self-stretch w-full flex relative">
-          <h1 className="relative self-stretch mt-[-1.00px] [font-family:'Geologica-Bold',Helvetica] font-bold text-x1st-primary text-6xl tracking-[0] leading-[normal]">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="relative self-stretch mt-[-1.00px] [font-family:'Geologica-Bold',Helvetica] font-bold text-x1st-primary text-6xl tracking-[0] leading-[normal]"
+          >
             Hello.
             <br />
             I&apos;m Francis Niño.
-          </h1>
+          </motion.h1>
 
-          <p className="relative self-stretch [font-family:'Geologica-Medium',Helvetica] font-medium text-x1st-primary text-base tracking-[0] leading-[normal]">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="relative self-stretch [font-family:'Geologica-Medium',Helvetica] font-medium text-x1st-primary text-base tracking-[0] leading-[normal]"
+          >
             Every new thing you learn is a fresh color on your palette. Explore
             endlessly, so you can create without limits.
-          </p>
+          </motion.p>
 
           <div className="flex flex-col w-[427px] items-start justify-end gap-[100px] pl-0 pr-2.5 pt-5 pb-2.5 relative flex-[0_0_auto]">
-            <a
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               href="#resume"
               className="inline-flex items-center justify-center gap-2.5 p-5 relative flex-[0_0_auto] bg-x1st-primary rounded-[20px] no-underline transition-opacity hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-x1st-primary focus:ring-offset-2"
               aria-label="Check my resume"
@@ -63,7 +76,7 @@ export const HeroSection = () => {
               <span className="relative w-[200px] mt-[-1.00px] [font-family:'Geologica-Bold',Helvetica] font-bold text-x2nd-primary text-[23px] tracking-[0] leading-[normal]">
                 check my resume
               </span>
-            </a>
+            </motion.a>
 
             <div className="justify-center gap-0.5 self-stretch w-full flex-[0_0_auto] flex flex-col items-start relative">
               <h2 className="relative self-stretch mt-[-1.00px] [font-family:'Geologica-SemiBold',Helvetica] font-semibold text-x1st-primary text-[23px] tracking-[0] leading-[normal]">
@@ -75,8 +88,10 @@ export const HeroSection = () => {
                 aria-label="Social media links"
               >
                 {socialLinks.map((link, index) => (
-                  <a
+                  <motion.a
                     key={index}
+                    whileHover={{ y: -5, scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
                     className={`absolute top-0 ${link.position} w-[60px] h-[60px] ${link.isBackground ? "aspect-[1] bg-[url(/group.png)] bg-[100%_100%]" : "flex aspect-[1]"} transition-opacity hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-x1st-primary focus:ring-offset-2 rounded-lg`}
                     href={link.href}
                     rel="noopener noreferrer"
@@ -90,7 +105,7 @@ export const HeroSection = () => {
                         src={link.icon}
                       />
                     )}
-                  </a>
+                  </motion.a>
                 ))}
               </nav>
             </div>

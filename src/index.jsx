@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { AboutMeSection } from "./AboutMeSection";
 import { FooterSection } from "./FooterSection";
 import { HeroSection } from "./HeroSection";
@@ -105,7 +106,11 @@ export const Homepage = () => {
         <AboutMeSection />
         <SkillsSection />
         
-        <section
+        <motion.section
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
           className="flex w-full min-h-[50px] relative items-center overflow-hidden gap-[90px] px-0 py-10 bg-breaker"
           aria-label="Technologies"
         >
@@ -114,9 +119,10 @@ export const Homepage = () => {
             style={{ "--gap": "90px", "--duration": "20s" }}
           >
             {techLogos.map((logo, index) => (
-              <img
+              <motion.img
                 key={index}
-                className={`w-[60px] h-[60px] ${logo.aspectRatio} relative object-cover`}
+                whileHover={{ scale: 1.2, rotate: 5 }}
+                className={`w-[60px] h-[60px] ${logo.aspectRatio} relative object-cover cursor-pointer`}
                 alt={logo.alt}
                 src={logo.src}
               />
@@ -129,15 +135,16 @@ export const Homepage = () => {
             aria-hidden="true"
           >
             {techLogos.map((logo, index) => (
-              <img
+              <motion.img
                 key={`dup-${index}`}
-                className={`w-[60px] h-[60px] ${logo.aspectRatio} relative object-cover`}
+                whileHover={{ scale: 1.2, rotate: 5 }}
+                className={`w-[60px] h-[60px] ${logo.aspectRatio} relative object-cover cursor-pointer`}
                 alt={logo.alt}
                 src={logo.src}
               />
             ))}
           </div>
-        </section>
+        </motion.section>
 
         <ProjectsSection />
       </main>

@@ -1,4 +1,5 @@
 import { useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 import Project3 from "./assets/projects/dostgemms_pic.svg";
 import Project1 from "./assets/projects/covid_pic.svg";
 import Project2 from "./assets/projects/registration_pic.svg";
@@ -14,7 +15,7 @@ export const ProjectsSection = () => {
   const startX = useRef(0);
   const scrollLeft = useRef(0);
 
-  // 2. Mouse Wheel Scroll Logic (Kept from before)
+  // 2. Mouse Wheel Scroll Logic
   useEffect(() => {
     const el = scrollRef.current;
     if (el) {
@@ -36,29 +37,23 @@ export const ProjectsSection = () => {
   // 3. Click-and-Drag Mouse Handlers
   const handleMouseDown = (e) => {
     isDragging.current = true;
-    // Record where the mouse was clicked relative to the container
     startX.current = e.pageX - scrollRef.current.offsetLeft;
-    // Record the current scroll position
     scrollLeft.current = scrollRef.current.scrollLeft;
   };
 
   const handleMouseLeave = () => {
-    isDragging.current = false; // Stop dragging if the mouse leaves the box
+    isDragging.current = false;
   };
 
   const handleMouseUp = () => {
-    isDragging.current = false; // Stop dragging when the mouse button is released
+    isDragging.current = false;
   };
 
   const handleMouseMove = (e) => {
-    if (!isDragging.current) return; // Only run if the mouse is held down
+    if (!isDragging.current) return;
     e.preventDefault();
-    
-    // Calculate how far the mouse has moved
     const x = e.pageX - scrollRef.current.offsetLeft;
-    const walk = (x - startX.current) * 1.5; // Multiply by 1.5 to make it scroll a bit faster
-    
-    // Move the scrollbar
+    const walk = (x - startX.current) * 1.5;
     scrollRef.current.scrollLeft = scrollLeft.current - walk;
   };
 
@@ -107,74 +102,103 @@ export const ProjectsSection = () => {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
   return (
     <section className="flex w-full relative flex-col items-start gap-8 px-10 md:px-[150px] py-[70px] bg-white">
-      <h2 className="w-full relative mt-[-5.00px] [font-family:'Geologica-Bold',Helvetica] font-bold text-x1st-primary text-[60px] md:text-[60px] tracking-[0] leading-[normal]">
+      <motion.h2 
+        initial={{ opacity: 0, x: -20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        className="w-full relative mt-[-5.00px] [font-family:'Geologica-Bold',Helvetica] font-bold text-x1st-primary text-[60px] md:text-[60px] tracking-[0] leading-[normal]"
+      >
         My Projects
-      </h2>
+      </motion.h2>
 
-      <img
-        className="relative w-full h-[3px] object-cover mb-4"
+      <motion.img
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="relative w-full h-[3px] object-cover mb-4 origin-left"
         alt="Divider"
         src={vector2}
       />
 
-      {/* Added the mouse events and cursor styling classes here */}
-      <div 
+      <motion.div 
         ref={scrollRef}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
         onMouseDown={handleMouseDown}
         onMouseLeave={handleMouseLeave}
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
-        className="flex items-center gap-10 px-0 relative self-stretch w-full overflow-x-auto pb-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] cursor-grab active:cursor-grabbing select-none"
+        className="flex items-stretch gap-10 px-0 relative self-stretch w-full overflow-x-auto pb-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] cursor-grab active:cursor-grabbing select-none"
       >
-        <div className="inline-flex items-stretch gap-10 relative">
-          {projects.map((project, index) => (
-            <article
-              key={index}
-              className="flex flex-col w-[550px] min-h-[250px] bg-bg rounded-[30px] border-[5px] border-solid border-black overflow-hidden shrink-0"
-            >
-              <header className="flex items-center gap-6 px-8 py-4 bg-x-3rd border-b-[5px] border-black shrink-0 h-[70px]">
-                <div className="flex gap-2 shrink-0">
-                  <div className="w-6 h-6 bg-[#d9d9d9] rounded-full border-[4px] border-black opacity-60" />
-                  <div className="w-6 h-6 bg-[#d9d9d9] rounded-full border-[4px] border-black opacity-60" />
-                  <div className="w-6 h-6 bg-[#d9d9d9] rounded-full border-[4px] border-black opacity-60" />
-                </div>
-                <h3 className="flex-1 text-center [font-family:'Geologica-Bold',Helvetica] font-bold text-black text-xl leading-snug line-clamp-3">
-                  {project.title}
-                </h3>
-              </header>
-
-              <div className="w-full h-[125px] border-b-[5px] border-black shrink-0 bg-white">
-                <img
-                  className="w-full h-full object-cover pointer-events-none"
-                  draggable="false"
-                  alt={project.title}
-                  src={project.image}
-                />
+        {projects.map((project, index) => (
+          <motion.article
+            key={index}
+            variants={cardVariants}
+            whileHover={{ y: -10, transition: { duration: 0.2 } }}
+            className="flex flex-col w-[550px] min-h-[250px] bg-bg rounded-[30px] border-[5px] border-solid border-black overflow-hidden shrink-0"
+          >
+            <header className="flex items-center gap-6 px-8 py-4 bg-x-3rd border-b-[5px] border-black shrink-0 h-[70px]">
+              <div className="flex gap-2 shrink-0">
+                <div className="w-6 h-6 bg-[#d9d9d9] rounded-full border-[4px] border-black opacity-60" />
+                <div className="w-6 h-6 bg-[#d9d9d9] rounded-full border-[4px] border-black opacity-60" />
+                <div className="w-6 h-6 bg-[#d9d9d9] rounded-full border-[4px] border-black opacity-60" />
               </div>
+              <h3 className="flex-1 text-center [font-family:'Geologica-Bold',Helvetica] font-bold text-black text-xl leading-snug line-clamp-3">
+                {project.title}
+              </h3>
+            </header>
 
-              <div className="flex flex-col grow justify-between p-6 gap-6">
-                <p className="[font-family:'Geologica-Regular',Helvetica] font-normal text-black text-[15px] leading-relaxed">
-                  {project.description}
-                </p>
+            <div className="w-full h-[125px] border-b-[5px] border-black shrink-0 bg-white">
+              <img
+                className="w-full h-full object-cover pointer-events-none"
+                draggable="false"
+                alt={project.title}
+                src={project.image}
+              />
+            </div>
 
-                <a
-                  className="inline-flex items-center justify-center px-6 py-3 bg-x1st-primary rounded-[10px] self-start transition-opacity hover:opacity-90 pointer-events-auto"
-                  href={project.link}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  aria-label={`View ${project.title} project`}
-                >
-                  <span className="[font-family:'Geologica-Bold',Helvetica] font-bold text-x2nd-primary text-l">
-                    View Project
-                  </span>
-                </a>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
+            <div className="flex flex-col grow justify-between p-6 gap-6">
+              <p className="[font-family:'Geologica-Regular',Helvetica] font-normal text-black text-[15px] leading-relaxed">
+                {project.description}
+              </p>
+
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center justify-center px-6 py-3 bg-x1st-primary rounded-[10px] self-start transition-opacity hover:opacity-90 pointer-events-auto"
+                href={project.link}
+                rel="noopener noreferrer"
+                target="_blank"
+                aria-label={`View ${project.title} project`}
+              >
+                <span className="[font-family:'Geologica-Bold',Helvetica] font-bold text-x2nd-primary text-l">
+                  View Project
+                </span>
+              </motion.a>
+            </div>
+          </motion.article>
+        ))}
+      </motion.div>
     </section>
   );
 };

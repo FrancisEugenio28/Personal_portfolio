@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import vector1 from "./assets/vector-1.svg";
 
 export const SkillsSection = () => {
@@ -14,15 +15,63 @@ export const SkillsSection = () => {
     "Focused on understanding complex requirements to deliver precise, user-centered results.",
   ];
 
-  return (
-    <section className="flex w-full min-h-[450px] relative flex-col items-start gap-[250px] pt-[45px] pb-[30px] px-[150px] bg-breaker">
-      <div className="relative w-full max-w-[1620px] h-[695px] mb-[-26.00px]">
-        <div className="flex flex-col w-full h-[695px] items-start gap-2.5 relative">
-          <h2 className="self-stretch relative mt-[-1.00px] [font-family:'Geologica-Bold',Helvetica] font-bold text-x1st-primary text-[60px] tracking-[0] leading-[normal]">
-            My Skills
-          </h2>
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      },
+    },
+  };
 
-          <img
+  const itemVariants = {
+    hidden: { opacity: 0, x: -30 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
+  const titleVariants = {
+    hidden: { opacity: 0, y: -30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  const lineVariants = {
+    hidden: { scaleX: 0 },
+    visible: {
+      scaleX: 1,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  return (
+    <section className="flex w-full min-h-[450px] relative flex-col items-start gap-[250px] pt-[45px] pb-[30px] px-[150px] bg-breaker overflow-hidden">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={containerVariants}
+        className="relative w-full max-w-[1620px] h-[695px] mb-[-26.00px]"
+      >
+        <div className="flex flex-col w-full h-[695px] items-start gap-2.5 relative">
+          <motion.h2
+            variants={titleVariants}
+            className="self-stretch relative mt-[-1.00px] [font-family:'Geologica-Bold',Helvetica] font-bold text-x1st-primary text-[60px] tracking-[0] leading-[normal]"
+          >
+            My Skills
+          </motion.h2>
+
+          <motion.img
+            variants={lineVariants}
+            style={{ originX: 0 }}
             className="relative w-full object-cover h-2"
             alt=""
             src={vector1}
@@ -30,15 +79,22 @@ export const SkillsSection = () => {
           />
 
           <div className="relative self-stretch h-[688px] mb-[-115.00px] [font-family:'Geologica-Bold',Helvetica] font-bold text-x1st-primary text-4xl text-justify tracking-[0] leading-[50px]">
-            <h3 className="[font-family:'Geologica-Bold',Helvetica] font-bold text-[#5b4c33] text-4xl tracking-[0] leading-[50px]">
+            <motion.h3
+              variants={itemVariants}
+              className="[font-family:'Geologica-Bold',Helvetica] font-bold text-[#5b4c33] text-4xl tracking-[0] leading-[50px]"
+            >
               Technical Skills:
-            </h3>
+            </motion.h3>
 
             <ul className="text-[21px] list-disc pl-8">
               {technicalSkills.map((skill, index) => (
-                <li key={index} className="leading-[50px]">
+                <motion.li
+                  key={`tech-${index}`}
+                  variants={itemVariants}
+                  className="leading-[50px]"
+                >
                   {skill}
-                </li>
+                </motion.li>
               ))}
             </ul>
 
@@ -46,20 +102,27 @@ export const SkillsSection = () => {
               <br />
             </div>
 
-            <h3 className="[font-family:'Geologica-Bold',Helvetica] font-bold text-[#5b4c33] text-4xl tracking-[0] leading-[50px]">
+            <motion.h3
+              variants={itemVariants}
+              className="[font-family:'Geologica-Bold',Helvetica] font-bold text-[#5b4c33] text-4xl tracking-[0] leading-[50px]"
+            >
               Soft Skills:
-            </h3>
+            </motion.h3>
 
             <ul className="text-[21px] list-disc pl-8">
               {softSkills.map((skill, index) => (
-                <li key={index} className="leading-[50px]">
+                <motion.li
+                  key={`soft-${index}`}
+                  variants={itemVariants}
+                  className="leading-[50px]"
+                >
                   {skill}
-                </li>
+                </motion.li>
               ))}
             </ul>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
