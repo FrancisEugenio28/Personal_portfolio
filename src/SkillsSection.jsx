@@ -1,128 +1,101 @@
 import { motion } from "framer-motion";
-import vector1 from "./assets/vector-1.svg";
+import { Code2, Layout, Database, Cpu, Users, Zap } from "lucide-react";
 
 export const SkillsSection = () => {
-  const technicalSkills = [
-    "Knowledgeable in building robust applications using C/C++, Python, and JavaScript, with a focus on logic and efficiency.",
-    "Experienced in developing data-driven web solutions using PHP and the Laravel Framework.",
-    "Knowledgeable in creating cross-platform mobile experiences with Flutter.",
-    "Knowledgeable in AutoCAD for precise 3D modeling and hardware prototyping.",
-  ];
-
-  const softSkills = [
-    "A proactive team player dedicated to shared goals and effective communication.",
-    "Highly adaptive and committed to mastering new technologies in the ever-evolving engineering landscape.",
-    "Focused on understanding complex requirements to deliver precise, user-centered results.",
+  const categories = [
+    {
+      title: "Languages",
+      icon: <Code2 className="w-8 h-8" />,
+      skills: ["C/C++", "Python", "JavaScript", "PHP", "SQL"],
+    },
+    {
+      title: "Frameworks & Web",
+      icon: <Layout className="w-8 h-8" />,
+      skills: ["React", "Laravel", "Flutter", "Tailwind CSS", "HTML/CSS"],
+    },
+    {
+      title: "Engineering & Hardware",
+      icon: <Cpu className="w-8 h-8" />,
+      skills: ["AutoCAD", "IoT Systems", "Embedded Systems", "Hardware Prototyping"],
+    },
+    {
+      title: "Soft Skills",
+      icon: <Users className="w-8 h-8" />,
+      skills: ["Team Leadership", "Adaptive Learning", "User-Centered Design", "Clear Communication"],
+    },
   ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
-      },
+      transition: { staggerChildren: 0.1 },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, x: -30 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.5, ease: "easeOut" },
-    },
-  };
-
-  const titleVariants = {
-    hidden: { opacity: 0, y: -30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
-
-  const lineVariants = {
-    hidden: { scaleX: 0 },
-    visible: {
-      scaleX: 1,
-      transition: { duration: 0.8, ease: "easeOut" },
-    },
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
   };
 
   return (
-    <section className="flex w-full min-h-[450px] relative flex-col items-start gap-[250px] pt-[45px] pb-[30px] px-[150px] bg-breaker overflow-hidden">
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-        variants={containerVariants}
-        className="relative w-full max-w-[1620px] h-[695px] mb-[-26.00px]"
-      >
-        <div className="flex flex-col w-full h-[695px] items-start gap-2.5 relative">
-          <motion.h2
-            variants={titleVariants}
-            className="self-stretch relative mt-[-1.00px] [font-family:'Geologica-Bold',Helvetica] font-bold text-x1st-primary text-[60px] tracking-[0] leading-[normal]"
-          >
-            My Skills
-          </motion.h2>
+    <section className="py-24 px-10 md:px-20 bg-white dark:bg-[#1a1a1a] transition-colors duration-300 overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        <motion.h2
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          className="text-[60px] font-bold text-x1st-primary mb-16"
+        >
+          My Skills
+        </motion.h2>
 
-          <motion.img
-            variants={lineVariants}
-            style={{ originX: 0 }}
-            className="relative w-full object-cover h-2"
-            alt=""
-            src={vector1}
-            role="presentation"
-          />
-
-          <div className="relative self-stretch h-[688px] mb-[-115.00px] [font-family:'Geologica-Bold',Helvetica] font-bold text-x1st-primary text-4xl text-justify tracking-[0] leading-[50px]">
-            <motion.h3
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+        >
+          {categories.map((cat, idx) => (
+            <motion.div
+              key={idx}
               variants={itemVariants}
-              className="[font-family:'Geologica-Bold',Helvetica] font-bold text-[#5b4c33] text-4xl tracking-[0] leading-[50px]"
+              whileHover={{ y: -5 }}
+              className="p-8 bg-bg dark:bg-gray-800 rounded-3xl shadow-lg border border-transparent hover:border-x1st-primary/20 transition-all flex flex-col gap-6"
             >
-              Technical Skills:
-            </motion.h3>
+              <div className="text-x1st-primary dark:text-gray-200">
+                {cat.icon}
+              </div>
+              <h3 className="text-2xl font-bold text-x1st-primary dark:text-white">
+                {cat.title}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {cat.skills.map((skill, sIdx) => (
+                  <span
+                    key={sIdx}
+                    className="px-3 py-1 bg-white/50 dark:bg-white/5 rounded-full text-sm font-semibold text-x1st-primary dark:text-gray-300 border border-black/5 dark:border-white/5"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
 
-            <ul className="text-[21px] list-disc pl-8">
-              {technicalSkills.map((skill, index) => (
-                <motion.li
-                  key={`tech-${index}`}
-                  variants={itemVariants}
-                  className="leading-[50px]"
-                >
-                  {skill}
-                </motion.li>
-              ))}
-            </ul>
-
-            <div className="text-[28px] leading-[50px]">
-              <br />
-            </div>
-
-            <motion.h3
-              variants={itemVariants}
-              className="[font-family:'Geologica-Bold',Helvetica] font-bold text-[#5b4c33] text-4xl tracking-[0] leading-[50px]"
-            >
-              Soft Skills:
-            </motion.h3>
-
-            <ul className="text-[21px] list-disc pl-8">
-              {softSkills.map((skill, index) => (
-                <motion.li
-                  key={`soft-${index}`}
-                  variants={itemVariants}
-                  className="leading-[50px]"
-                >
-                  {skill}
-                </motion.li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="mt-16 p-8 bg-x1st-primary rounded-3xl text-x2nd-primary flex items-center gap-6"
+        >
+          <Zap size={40} className="shrink-0" />
+          <p className="text-xl font-bold italic leading-relaxed">
+            &quot;I&apos;m dedicated to mastering new technologies in the ever-evolving engineering landscape, 
+            focused on delivering precise, user-centered results.&quot;
+          </p>
+        </motion.div>
+      </div>
     </section>
   );
 };

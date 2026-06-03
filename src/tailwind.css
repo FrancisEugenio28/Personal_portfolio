@@ -22,8 +22,21 @@
   --breaker: rgba(189, 187, 183, 0.3);
   --white: rgba(247, 245, 242, 1);
   --x-3rd: rgba(174, 172, 163, 1);
-  --x1st-primary: rgba(92, 77, 52, 1);
+  --x1st-primary: rgb(84, 54, 5);
   --x2nd-primary: rgba(197, 186, 167, 1);
+}
+
+.dark {
+  --bg: #121212;
+  --breaker: #2a2a2a;
+  --white: #1f2937;
+  --x-3rd: #374151;
+  --x1st-primary: #f3f4f6;
+  --x2nd-primary: #111827;
+}
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 :root {
