@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import Facebook from "./assets/hero/facebook_hero.svg";
 import Instagram from "./assets/hero/instagram_hero.svg";
 import Github from "./assets/hero/github_hero.svg";
@@ -7,40 +8,15 @@ import HeroBg from "./assets/hero/hero-bg.jpg";
 
 export const HeroSection = () => {
   const socialLinks = [
-    {
-      href: "https://web.facebook.com/balong.eugenio/",
-      icon: Facebook,
-      alt: "Facebook",
-      width: "w-[50px]",
-      position: "left-0",
-    },
-    {
-      href: "https://www.instagram.com/oninoninoninoninonin/",
-      icon: Instagram,
-      alt: "Instagram",
-      width: "w-[45px]",
-      position: "left-40",
-    },
-    {
-      href: "https://github.com/FrancisEugenio28",
-      icon: Github,
-      alt: "GitHub",
-      width: "w-[60px]",
-      position: "left-80",
-
-    },
-    {
-      href: "https://www.linkedin.com/in/eugenio-francis-ni%C3%B1o-a-164b76359/",
-      icon: LinkedIn,
-      alt: "LinkedIn",
-      width: "w-[49.7px]",
-      position: "left-[480px]",
-    },
+    { href: "https://web.facebook.com/balong.eugenio/", icon: Facebook, alt: "Facebook" },
+    { href: "https://www.instagram.com/oninoninoninoninonin/", icon: Instagram, alt: "Instagram" },
+    { href: "https://github.com/FrancisEugenio28", icon: Github, alt: "GitHub" },
+    { href: "https://www.linkedin.com/in/eugenio-francis-ni%C3%B1o-a-164b76359/", icon: LinkedIn, alt: "LinkedIn" },
   ];
 
   return (
     <section
-      className="flex self-end w-full min-h-[650px] relative items-center gap-[100px] px-[150px] py-[60px] bg-cover bg-center bg-no-repeat"
+      className="flex w-full min-h-screen relative items-center justify-start px-10 md:px-40 py-20 bg-cover bg-center bg-no-repeat transition-all duration-500 overflow-hidden"
       style={{
         backgroundImage: `url(${HeroBg})`,
         backgroundColor: "rgba(217,218,204,0.45)",
@@ -48,75 +24,61 @@ export const HeroSection = () => {
       }}
       aria-label="Hero Section"
     >
-      <div className="flex flex-col w-[750px] items-end justify-center gap-0.5 relative mt-[-87.00px] mb-[-150.00px]">
-        <div className="flex-col h-[650px] items-start gap-3 pt-10 pb-0 px-0 self-stretch w-full flex relative">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative self-stretch mt-[-1.00px] [font-family:'Geologica-Bold',Helvetica] font-extrabold text-x1st-primary text-6xl tracking-[0] leading-[normal]"
+      <div className="absolute inset-0 bg-black/10 dark:bg-black/60 transition-colors duration-500" />
+
+      <div className="relative z-10 flex flex-col max-w-4xl gap-6 md:gap-8">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col gap-4"
+        >
+          <h1 className="text-x1st-primary text-5xl md:text-8xl font-black leading-tight tracking-tighter">
+            Hi, I&apos;m <br />
+            <span className="text-white drop-shadow-lg">Francis Niño.</span>
+          </h1>
+          
+          <p className="text-x1st-primary dark:text-gray-300 text-lg md:text-2xl font-bold max-w-2xl leading-relaxed">
+            A Computer Engineer building robust hardware and software systems. 
+            I turn complex problems into elegant, functional solutions.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-10 mt-4"
+        >
+          <Link
+            to="/resume"
+            className="w-full md:w-auto px-8 md:px-10 py-4 md:py-5 bg-x1st-primary text-x2nd-primary rounded-2xl font-black text-xl md:text-2xl shadow-xl hover:scale-105 active:scale-95 transition-all no-underline text-center"
           >
-            Hello.
-            <br />
-            I&apos;m Francis Niño.
-          </motion.h1>
+            check my resume
+          </Link>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="relative self-stretch [font-family:'Geologica-Bold',Helvetica] font-bold text-x1st-primary text-base tracking-[0] leading-[normal]"
-          >
-            Every new thing you learn is a fresh color on your palette. Explore
-            endlessly, so you can create without limits.
-          </motion.p>
-
-          <div className="flex flex-col w-[427px] items-start justify-end gap-[100px] pl-0 pr-2.5 pt-5 pb-2.5 relative flex-[0_0_auto]">
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href="#resume"
-              className="inline-flex items-center justify-center gap-2.5 p-5 relative flex-[0_0_auto] bg-x1st-primary rounded-[20px] no-underline transition-opacity hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-x1st-primary focus:ring-offset-2"
-              aria-label="Check my resume"
-            >
-              <span className="relative w-[200px] mt-[-1.00px] [font-family:'Geologica-Bold',Helvetica] font-bold text-x2nd-primary text-[23px] tracking-[0] leading-[normal]">
-                check my resume
-              </span>
-            </motion.a>
-
-            <div className="justify-center gap-0.5 self-stretch w-full flex-[0_0_auto] flex flex-col items-start relative">
-              <h2 className="relative self-stretch mt-[-1.00px] [font-family:'Geologica-SemiBold',Helvetica] font-semibold text-x1st-primary text-[23px] tracking-[0] leading-[normal]">
-                Connect with me:
-              </h2>
-
-              <nav
-                className="relative w-[540px] h-[60px] mr-[-123.00px]"
-                aria-label="Social media links"
-              >
-                {socialLinks.map((link, index) => (
-                  <motion.a
-                    key={index}
-                    whileHover={{ y: -5, scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className={`absolute top-0 ${link.position} w-[60px] h-[60px] ${link.isBackground ? "aspect-[1] bg-[url(/group.png)] bg-[100%_100%]" : "flex aspect-[1]"} transition-opacity hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-x1st-primary focus:ring-offset-2 rounded-lg`}
-                    href={link.href}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    aria-label={link.alt}
-                  >
-                    {link.icon && (
-                      <img
-                        className={`flex-1 ${link.width}`}
-                        alt={link.alt}
-                        src={link.icon}
-                      />
-                    )}
-                  </motion.a>
-                ))}
-              </nav>
+          <div className="flex flex-col gap-3">
+            <span className="text-x1st-primary dark:text-gray-300 font-bold uppercase tracking-widest text-xs md:text-sm">
+              Connect with me
+            </span>
+            <div className="flex gap-4 md:gap-5">
+              {socialLinks.map((link, index) => (
+                <motion.a
+                  key={index}
+                  whileHover={{ y: -5, scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-white/20 backdrop-blur-sm rounded-xl hover:bg-white/40 transition-all dark:invert"
+                  aria-label={link.alt}
+                >
+                  <img src={link.icon} alt={link.alt} className="w-6 h-6 md:w-8 md:h-8 object-contain" />
+                </motion.a>
+              ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

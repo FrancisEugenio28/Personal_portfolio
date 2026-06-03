@@ -66,23 +66,23 @@ export const ProjectsSection = () => {
   const filteredProjects = filter === "All" ? projects : projects.filter(p => p.category === filter);
 
   return (
-    <section className="py-24 px-10 md:px-20 bg-[#f0eee4] dark:bg-[#121212] transition-colors duration-300 overflow-hidden">
+    <section className="py-16 md:py-24 px-6 md:px-20 bg-[#f0eee4] dark:bg-[#121212] transition-colors duration-300 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-12 md:mb-16">
           <motion.h2 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            className="text-[60px] font-bold text-x1st-primary"
+            className="text-4xl md:text-6xl font-bold text-x1st-primary"
           >
             My Projects
           </motion.h2>
 
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-3 md:gap-4">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`px-6 py-2 rounded-full font-bold transition-all ${
+                className={`px-4 md:px-6 py-2 rounded-full font-bold text-sm md:text-base transition-all ${
                   filter === cat 
                     ? "bg-x1st-primary text-x2nd-primary shadow-lg" 
                     : "bg-white/50 dark:bg-white/5 text-x1st-primary dark:text-gray-400 hover:bg-white dark:hover:bg-white/10"
@@ -96,7 +96,7 @@ export const ProjectsSection = () => {
 
         <motion.div 
           layout
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-10"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10"
         >
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project) => (

@@ -38,18 +38,18 @@ export const Homepage = () => {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1 }}
-        className="flex w-full min-h-[100px] relative items-center overflow-hidden gap-[90px] py-16 bg-breaker dark:bg-gray-900 transition-colors duration-300"
+        className="flex w-full min-h-[60px] md:min-h-[80px] relative items-center overflow-hidden gap-12 md:gap-[90px] py-4 md:py-8 bg-breaker dark:bg-gray-900 transition-colors duration-300"
         aria-label="Technologies"
       >
         <div 
-          className="flex shrink-0 items-center gap-[90px] animate-marquee"
+          className="flex shrink-0 items-center gap-12 md:gap-[90px] animate-marquee"
           style={{ "--gap": "90px", "--duration": "25s" }}
         >
           {techLogos.map((logo, index) => (
             <motion.img
               key={index}
               whileHover={{ scale: 1.3, rotate: 10 }}
-              className="w-[70px] h-[70px] aspect-square relative object-contain cursor-pointer dark:brightness-110 dark:contrast-125"
+              className="w-10 h-5 md:w-[70px] md:h-[70px] aspect-square relative object-contain cursor-pointer dark:brightness-110 dark:contrast-125"
               alt={logo.alt}
               src={logo.src}
             />
@@ -57,7 +57,7 @@ export const Homepage = () => {
         </div>
 
         <div 
-          className="flex shrink-0 items-center gap-[90px] animate-marquee"
+          className="flex shrink-0 items-center gap-12 md:gap-[90px] animate-marquee"
           style={{ "--gap": "90px", "--duration": "25s" }}
           aria-hidden="true"
         >
@@ -65,7 +65,7 @@ export const Homepage = () => {
             <motion.img
               key={`dup-${index}`}
               whileHover={{ scale: 1.3, rotate: 10 }}
-              className="w-[70px] h-[70px] aspect-square relative object-contain cursor-pointer dark:brightness-110 dark:contrast-125"
+              className="w-10 h-5 md:w-[70px] md:h-[70px] aspect-square relative object-contain cursor-pointer dark:brightness-110 dark:contrast-125"
               alt={logo.alt}
               src={logo.src}
             />

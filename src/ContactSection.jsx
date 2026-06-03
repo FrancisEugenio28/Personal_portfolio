@@ -25,12 +25,12 @@ export const ContactSection = () => {
   };
 
   return (
-    <section className="py-20 px-10 md:px-20 bg-[#f0eee4] dark:bg-[#121212] transition-colors duration-300">
+    <section className="py-16 md:py-20 px-6 md:px-20 bg-[#f0eee4] dark:bg-[#121212] transition-colors duration-300">
       <div className="max-w-4xl mx-auto">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-[60px] font-bold text-x1st-primary mb-12 text-center"
+          className="text-4xl md:text-6xl font-bold text-x1st-primary mb-10 md:mb-12 text-center"
         >
           Get In Touch
         </motion.h2>
@@ -38,7 +38,7 @@ export const ContactSection = () => {
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          className="bg-white dark:bg-gray-800 p-8 md:p-12 rounded-3xl shadow-xl"
+          className="bg-white dark:bg-gray-800 p-6 md:p-12 rounded-3xl shadow-xl"
         >
           <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-6">
             <div className="grid md:grid-cols-2 gap-6">

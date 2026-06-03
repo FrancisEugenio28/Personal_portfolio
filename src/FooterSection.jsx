@@ -13,12 +13,12 @@ export const FooterSection = () => {
   ];
 
   return (
-    <footer className="w-full py-12 px-10 md:px-20 bg-x2nd-primary dark:bg-[#0a0a0a] border-t border-black/5 dark:border-white/5 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-        <div className="flex flex-col items-center md:items-start gap-2">
-            <h2 className="text-3xl font-black text-x1st-primary dark:text-white">francis.</h2>
-            <p className="text-x1st-primary/50 dark:text-gray-500 font-medium tracking-wider text-sm">
-                © {new Date().getFullYear()} Francis Niño Eugenio. All rights reserved.
+    <footer className="w-full py-10 md:py-12 px-6 md:px-20 bg-x2nd-primary dark:bg-[#0a0a0a] border-t border-black/5 dark:border-white/5 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8">
+        <div className="flex flex-col items-center md:items-start gap-2 text-center md:text-left">
+            <h2 className="text-2xl md:text-3xl font-black text-x1st-primary dark:text-white">francis.</h2>
+            <p className="text-x1st-primary/50 dark:text-gray-500 font-medium tracking-wider text-xs md:text-sm">
+                © {new Date().getFullYear()} Francis Niño Eugenio. <br className="md:hidden" /> All rights reserved.
             </p>
         </div>
 
