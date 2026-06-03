@@ -11,9 +11,9 @@ export const Layout = ({ children }) => {
 
   return (
     <div className="bg-bg min-h-screen w-full overflow-x-hidden flex flex-col transition-colors duration-300">
-      <header className="flex w-full min-h-[60px] md:min-h-[70px] relative flex-col items-center justify-center p-2 bg-x2nd-primary sticky top-0 z-50 shadow-sm transition-all duration-300">
+      <header className="flex w-full min-h-[40px] md:min-h-[50px] relative flex-col items-center justify-center bg-x2nd-primary sticky top-0 z-50 shadow-sm transition-all duration-300">
         <nav className="w-full h-full items-center justify-between px-6 md:px-20 py-2 flex relative">
-          <Link to="/" className="text-x1st-primary no-underline relative w-fit [font-family:'Geologica-Bold',Helvetica] font-extrabold text-xl md:text-2xl tracking-[0] leading-[normal]">
+          <Link to="/" className="text-x1st-primary no-underline relative w-fit [font-family:'Geologica-Bold',Helvetica] font-extrabold text-lg md:text-2xl tracking-[0] leading-[normal]">
             francis.
           </Link>
 

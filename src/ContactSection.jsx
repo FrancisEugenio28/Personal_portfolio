@@ -11,9 +11,11 @@ export const ContactSection = () => {
     e.preventDefault();
     setStatus('sending');
 
-    // NOTE: You need to replace these with your actual EmailJS IDs
-    // service_id, template_id, public_key
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_PUBLIC_KEY')
+    const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    emailjs.sendForm(serviceID, templateID, form.current, publicKey)
       .then((result) => {
           console.log(result.text);
           setStatus('success');
@@ -30,7 +32,7 @@ export const ContactSection = () => {
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-6xl font-bold text-x1st-primary mb-10 md:mb-12 text-center"
+          className="text-3xl md:text-6xl font-bold text-x1st-primary mb-10 md:mb-12 text-center"
         >
           Get In Touch
         </motion.h2>
@@ -38,7 +40,7 @@ export const ContactSection = () => {
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          className="bg-white dark:bg-gray-800 p-6 md:p-12 rounded-3xl shadow-xl"
+          className="bg-white dark:bg-gray-800 p-5 md:p-12 rounded-3xl shadow-xl"
         >
           <form ref={form} onSubmit={sendEmail} className="flex flex-col gap-6">
             <div className="grid md:grid-cols-2 gap-6">
@@ -68,7 +70,7 @@ export const ContactSection = () => {
               <label className="text-x1st-primary font-bold ml-2">Message</label>
               <textarea 
                 name="message" 
-                rows="5" 
+                rows="3" 
                 required
                 placeholder="How can I help you?"
                 className="px-6 py-4 bg-gray-100 dark:bg-gray-700 rounded-2xl focus:ring-2 focus:ring-x1st-primary outline-none transition-all text-x1st-primary dark:text-white resize-none"
