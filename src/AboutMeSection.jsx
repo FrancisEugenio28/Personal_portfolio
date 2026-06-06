@@ -3,7 +3,7 @@ import Formal_Pic from "./assets/aboutme/formal-pic.jpg";
 
 export const AboutMeSection = () => {
   return (
-    <section className="flex flex-col md:flex-row w-full min-h-[700px] relative items-center bg-white dark:bg-[#1a1a1a] transition-colors duration-300 overflow-hidden">
+    <section id="about" className="flex flex-col md:flex-row w-full min-h-[700px] relative items-center bg-white dark:bg-[#1a1a1a] transition-colors duration-300 overflow-hidden">
       <div className="w-full md:w-1/2 h-[500px] md:h-screen relative overflow-hidden group">
         <motion.img
           initial={{ opacity: 0, scale: 1.1 }}
@@ -33,7 +33,7 @@ export const AboutMeSection = () => {
         </div>
 
         <p className="text-x1st-primary/90 dark:text-gray-300 text-lg md:text-xl font-medium leading-relaxed text-justify max-w-2xl">
-          I am a Computer Engineering student at PUP and a dedicated developer focused on building end-to-end systems. 
+          I am a Computer Engineering student at Polytechnic University of the Philippines and a dedicated developer focused on building end-to-end systems. 
           I love the "magic" of creating something out of nothing—whether that means architecting a robust backend, 
           developing cross-platform mobile apps, or engineering hardware prototypes.
           <br />

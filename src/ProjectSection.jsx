@@ -7,6 +7,7 @@ import Project2 from "./assets/projects/registration_pic.svg";
 import Project6 from "./assets/projects/soundtherapy3D_pic.svg";
 import Project4 from "./assets/projects/sleeptherapy_pic.svg";
 import Project5 from "./assets/projects/kumpas_pic.svg";
+import Project7 from "./assets/projects/saveslot_pic.png";
 
 export const ProjectsSection = () => {
   const [filter, setFilter] = useState("All");
@@ -60,13 +61,21 @@ export const ProjectsSection = () => {
       description: "Precision engineered 3D casing for an embedded sleep therapy device.",
       link: "https://www.printables.com/model/1616011-sleep-sound-therapy-3d-model",
     },
+    {
+      title: "SaveSlot",
+      category: "Web",
+      image: Project7,
+      tech: ["React", "Vite", "TypeScript", "Supabase"],
+      description: "Interactive web app for gamers to track and share their game experiences with their friends.",
+      link: "https://save-slot-seven.vercel.app/",
+    },
   ];
 
   const categories = ["All", "Web", "Mobile", "Desktop", "Hardware"];
   const filteredProjects = filter === "All" ? projects : projects.filter(p => p.category === filter);
 
   return (
-    <section className="py-16 md:py-24 px-6 md:px-20 bg-[#f0eee4] dark:bg-[#121212] transition-colors duration-300 overflow-hidden">
+    <section id="projects" className="py-16 md:py-24 px-6 md:px-20 bg-[#f0eee4] dark:bg-[#121212] transition-colors duration-300 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-12 md:mb-16">
           <motion.h2 

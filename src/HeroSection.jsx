@@ -16,6 +16,7 @@ export const HeroSection = () => {
 
   return (
     <section
+      id="home"
       className="flex w-full min-h-screen relative items-center justify-start px-10 md:px-40 py-20 bg-cover bg-center bg-no-repeat transition-all duration-500 overflow-hidden"
       style={{
         backgroundImage: `url(${HeroBg})`,
@@ -70,10 +71,14 @@ export const HeroSection = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-white/20 backdrop-blur-sm rounded-xl hover:bg-white/40 transition-all dark:invert"
+                  className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-white/20 backdrop-blur-sm rounded-xl hover:bg-white/40 transition-all"
                   aria-label={link.alt}
                 >
-                  <img src={link.icon} alt={link.alt} className="w-6 h-6 md:w-8 md:h-8 object-contain" />
+                  <img 
+                    src={link.icon} 
+                    alt={link.alt} 
+                    className="w-6 h-6 md:w-8 md:h-8 object-contain transition-all duration-300 dark:brightness-0 dark:invert" 
+                  />
                 </motion.a>
               ))}
             </div>

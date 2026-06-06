@@ -6,12 +6,12 @@ export const SkillsSection = () => {
     {
       title: "Languages",
       icon: <Code2 className="w-8 h-8" />,
-      skills: ["C/C++", "Python", "JavaScript", "PHP", "SQL"],
+      skills: ["C/C++", "Python", "JavaScript", "PHP", "SQL", "TypeScript"],
     },
     {
       title: "Frameworks & Web",
       icon: <Layout className="w-8 h-8" />,
-      skills: ["React", "Laravel", "Flutter", "Tailwind CSS", "HTML/CSS"],
+      skills: ["React", "Laravel", "Flutter", "Tailwind CSS", "HTML/CSS", "Supabase", "Vite"],
     },
     {
       title: "Engineering & Hardware",
@@ -39,7 +39,7 @@ export const SkillsSection = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 px-6 md:px-20 bg-white dark:bg-[#1a1a1a] transition-colors duration-300 overflow-hidden">
+    <section id="skills" className="py-16 md:py-24 px-6 md:px-20 bg-white dark:bg-[#1a1a1a] transition-colors duration-300 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, x: -20 }}
