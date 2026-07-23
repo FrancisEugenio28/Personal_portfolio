@@ -8,7 +8,7 @@ import { ResumePage } from './ResumePage';
 function App() {
   return (
     <ThemeProvider>
-      <Router basename="/Personal_portfolio">
+      <Router basename={__BASENAME__}>
         <Layout>
           <Routes>
             <Route path="/" element={<Homepage />} />
