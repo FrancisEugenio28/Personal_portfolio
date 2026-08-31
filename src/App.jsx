@@ -4,6 +4,7 @@ import { ThemeProvider } from './ThemeContext';
 import { Layout } from './Layout';
 import { Homepage } from './index';
 import { ResumePage } from './ResumePage';
+import { LoadingScreen } from './LoadingScreen';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path="/resume" element={<ResumePage />} />
           </Routes>
         </Layout>
+        <LoadingScreen />
       </Router>
     </ThemeProvider>
   );

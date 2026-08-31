@@ -3,6 +3,7 @@ import { AboutMeSection } from "./AboutMeSection";
 import { HeroSection } from "./HeroSection";
 import { ProjectsSection } from "./ProjectSection";
 import { SkillsSection } from "./SkillsSection";
+import { CertificatesSection } from "./CertificatesSection";
 import { ContactSection } from "./ContactSection";
 import Autocad_icon from "./assets/index/autocad-icon.svg";
 import HTML_icon from "./assets/index/html-icon.svg";
@@ -75,6 +76,7 @@ export const Homepage = () => {
 
       <AboutMeSection />
       <SkillsSection />
+      <CertificatesSection />
       <ProjectsSection />
       <ContactSection />
     </div>

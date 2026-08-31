@@ -18,6 +18,7 @@ export const Layout = ({ children }) => {
     { name: "Home", id: "home" },
     { name: "About", id: "about" },
     { name: "Skills", id: "skills" },
+    { name: "Certificates", id: "certificates" },
     { name: "Projects", id: "projects" },
     { name: "Contact", id: "contact" },
   ];
