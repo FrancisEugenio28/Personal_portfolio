@@ -94,7 +94,7 @@ export const ProjectsSection = () => {
                 className={`px-4 md:px-6 py-2 rounded-full font-bold text-sm md:text-base transition-all ${
                   filter === cat 
                     ? "bg-x1st-primary text-x2nd-primary shadow-lg" 
-                    : "bg-white/50 dark:bg-white/5 text-x1st-primary dark:text-gray-400 hover:bg-white dark:hover:bg-white/10"
+                    : "bg-white/50 dark:bg-white/5 text-x1st-primary dark:text-gray-400 hover:bg-white dark:hover:bg-white/20"
                 }`}
               >
                 {cat}

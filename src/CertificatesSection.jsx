@@ -1,25 +1,40 @@
+import { useState } from "react";
 import { motion as Motion } from "framer-motion";
 import { Award, BadgeCheck, ExternalLink } from "lucide-react";
 
 export const CertificatesSection = () => {
+  const [activeCategory, setActiveCategory] = useState("certificate");
   const publicAsset = (path) => `${import.meta.env.BASE_URL}${path}`;
 
   const credentials = [
     {
       title: "IBM Generative AI in Action",
+      category: "badge",
       issuer: "IBM SkillsBuild",
       issued: "August 2026",
-      badge: publicAsset("awards/IBM_generativeAI.jpg"),
+      badge: publicAsset("awards/IBM_generativeAI.png"),
       link: "https://www.credly.com/badges/7eeebaf6-a91c-48e1-a1ee-33267f209077/public_url",
     },
     {
       title: "AWS Fundamentals of Generative AI",
+      category: "certificate",
       issuer: "AWS Skill Builder",
       issued: "August 2026",
       badge: publicAsset("awards/AWS_fundamentalAI.jpg"),
       link: "https://skillbuilder.aws/learn/FKXM21R555/fundamentals-of-generative-ai/ZFX96NREH4",
+    },
+    {
+      title: "Cisco Introduction to Modern AI",
+      category: "badge",
+      issuer: "Cisco Networking Academy",
+      issued: "September 2026",
+      badge: publicAsset("awards/CISCO_modernAI.png"),
+      link: "https://www.credly.com/badges/cde79d21-e6c0-4658-9ffa-cd190c95c057/public_url",
     }
   ];
+  const filteredCredentials = credentials.filter(
+    (credential) => credential.category === activeCategory,
+  );
 
   return (
     <section
@@ -46,18 +61,54 @@ export const CertificatesSection = () => {
           </p>
         </Motion.div>
 
-        {credentials.length > 0 ? (
+        <div className="mb-8 flex justify-end">
+          <div
+            className="inline-flex flex-wrap justify-end gap-4 rounded-2xl dark:bg-gray-800 dark:ring-white/10 "
+            role="tablist"
+            aria-label="Credential categories"
+          >
+            {[
+              { label: "Certificates", value: "certificate" },
+              { label: "Badges", value: "badge" },
+            ].map((category) => {
+              const isActive = activeCategory === category.value;
+
+              return (
+                <button
+                  key={category.value}
+                  type="button"
+                  role="tab"
+                  aria-selected={isActive}
+                  aria-controls="credential-category-panel"
+                  onClick={() => setActiveCategory(category.value)}
+                  className={`rounded-[2rem] px-4 md:px-5 py-2.5 text-sm font-bold transition-colors overflow-hidden ${
+                    isActive
+                      ? "bg-x1st-primary text-x2nd-primary shadow-sm"
+                      : "text-x1st-primary/70 hover:text-x1st-primary dark:text-gray-300 dark:hover:text-white hover:bg-white/20"
+                  }`}
+                >
+                  {category.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {filteredCredentials.length > 0 ? (
           <Motion.div
+            key={activeCategory}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            animate="visible"
             variants={{
               hidden: { opacity: 0 },
               visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
             }}
             className="grid grid-cols-1 gap-6 md:gap-8"
+            role="tabpanel"
+            id="credential-category-panel"
+            aria-label={`${activeCategory === "certificate" ? "Certificates" : "Badges"} credentials`}
           >
-            {credentials.map((credential) => (
+            {filteredCredentials.map((credential) => (
               <Motion.article
                 key={credential.title}
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
@@ -106,9 +157,11 @@ export const CertificatesSection = () => {
               <Award className="w-8 h-8" />
             </div>
             <div>
-              <h3 className="text-2xl font-bold text-x1st-primary dark:text-white">Credential highlights coming soon</h3>
+              <h3 className="text-2xl font-bold text-x1st-primary dark:text-white">
+                No {activeCategory === "certificate" ? "certificates" : "badges"} yet
+              </h3>
               <p className="mt-2 text-x1st-primary/75 dark:text-gray-300 leading-relaxed">
-                This space is ready for verified certificates, digital badges, and links to their issuers.
+                New verified {activeCategory === "certificate" ? "certificates" : "badges"} will appear here soon.
               </p>
             </div>
           </Motion.div>
